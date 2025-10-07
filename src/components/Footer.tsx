@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   return (
     <footer className="mt-16 border-t border-white bg-black text-white">
@@ -13,11 +15,11 @@ export default function Footer() {
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider">Навигация</h4>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><a href="/" className="hover:underline">Главная</a></li>
-            <li><a href="/katalog" className="hover:underline">Каталог велосипедов</a></li>
-            <li><a href="/o-nas" className="hover:underline">О нас</a></li>
-            <li><a href="/kontakty" className="hover:underline">Контакты</a></li>
-            <li><a href="/korzina" className="hover:underline">Корзина</a></li>
+            <li><Link href="/" className="hover:underline">Главная</Link></li>
+            <li><Link href="/katalog" className="hover:underline">Каталог велосипедов</Link></li>
+            <li><Link href="/o-nas" className="hover:underline">О нас</Link></li>
+            <li><Link href="/kontakty" className="hover:underline">Контакты</Link></li>
+            <li><Link href="/korzina" className="hover:underline">Корзина</Link></li>
           </ul>
         </div>
         <div>
