@@ -7,7 +7,6 @@ const withAnalyzer = withBundleAnalyzer({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   // You can also exclude large modules here if needed
   webpack(config, { isServer }) {
     if (isServer) {
