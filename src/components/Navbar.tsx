@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/components/cart/CartContext";
-import React from "react";
 
 const navItems = [
   { href: "/katalog", label: "Каталог велосипедов" },
@@ -15,14 +14,6 @@ const navItems = [
 export default function Navbar() {
   const pathname = usePathname();
   const { count } = useCart();
-  const [user, setUser] = React.useState<{ id: string; email: string; name?: string } | null>(null);
-
-  React.useEffect(() => {
-    fetch("/api/auth/me")
-      .then((r) => r.json())
-      .then((j) => setUser(j.user ?? null))
-      .catch(() => setUser(null));
-  }, []);
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/75 border-b border-black">
@@ -67,18 +58,7 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
-            {user ? (
-              <form action="/api/auth/logout" method="POST">
-                <button className="border border-black rounded-full px-3 h-9 inline-flex items-center text-sm uppercase tracking-wide hover:bg-black hover:text-white">
-                  Выйти
-                </button>
-              </form>
-            ) : (
-              <div className="hidden md:flex items-center gap-2">
-                <Link href="/login" className="border border-black rounded-full px-3 h-9 inline-flex items-center text-sm uppercase tracking-wide hover:bg-black hover:text-white">Вход</Link>
-                <Link href="/register" className="border border-black rounded-full px-3 h-9 inline-flex items-center text-sm uppercase tracking-wide hover:bg-black hover:text-white">Регистрация</Link>
-              </div>
-            )}
+            
             <div className="md:hidden">
               <MobileMenu />
             </div>
